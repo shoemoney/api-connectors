@@ -335,8 +335,8 @@ public class OrderApi {
    * @param symbol Contract type.
    * @param orderType Active order type
    * @param qty 
-   * @param price Order price.
    * @param timeInForce Time in force
+   * @param price Order price.
    * @param takeProfit take profit price
    * @param stopLoss stop loss price
    * @param reduceOnly reduce only
@@ -344,7 +344,7 @@ public class OrderApi {
    * @param orderLinkId TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
    * @return Object
   */
-  public Object orderNew (String side, String symbol, String orderType, BigDecimal qty, Double price, String timeInForce, Double takeProfit, Double stopLoss, Boolean reduceOnly, Boolean closeOnTrigger, String orderLinkId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Object orderNew (String side, String symbol, String orderType, BigDecimal qty, String timeInForce, Double price, Double takeProfit, Double stopLoss, Boolean reduceOnly, Boolean closeOnTrigger, String orderLinkId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'side' is set
     if (side == null) {
@@ -365,11 +365,6 @@ public class OrderApi {
     if (qty == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'qty' when calling orderNew",
         new ApiException(400, "Missing the required parameter 'qty' when calling orderNew"));
-    }
-    // verify the required parameter 'price' is set
-    if (price == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'price' when calling orderNew",
-        new ApiException(400, "Missing the required parameter 'price' when calling orderNew"));
     }
     // verify the required parameter 'timeInForce' is set
     if (timeInForce == null) {
@@ -441,9 +436,9 @@ public class OrderApi {
       /**
    * Place active order
    * 
-   * @param side Side   * @param symbol Contract type.   * @param orderType Active order type   * @param qty    * @param price Order price.   * @param timeInForce Time in force   * @param takeProfit take profit price   * @param stopLoss stop loss price   * @param reduceOnly reduce only   * @param closeOnTrigger close on trigger   * @param orderLinkId TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
+   * @param side Side   * @param symbol Contract type.   * @param orderType Active order type   * @param qty    * @param timeInForce Time in force   * @param price Order price.   * @param takeProfit take profit price   * @param stopLoss stop loss price   * @param reduceOnly reduce only   * @param closeOnTrigger close on trigger   * @param orderLinkId TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
   */
-  public void orderNew (String side, String symbol, String orderType, BigDecimal qty, Double price, String timeInForce, Double takeProfit, Double stopLoss, Boolean reduceOnly, Boolean closeOnTrigger, String orderLinkId, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void orderNew (String side, String symbol, String orderType, BigDecimal qty, String timeInForce, Double price, Double takeProfit, Double stopLoss, Boolean reduceOnly, Boolean closeOnTrigger, String orderLinkId, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'side' is set
@@ -465,11 +460,6 @@ public class OrderApi {
     if (qty == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'qty' when calling orderNew",
         new ApiException(400, "Missing the required parameter 'qty' when calling orderNew"));
-    }
-    // verify the required parameter 'price' is set
-    if (price == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'price' when calling orderNew",
-        new ApiException(400, "Missing the required parameter 'price' when calling orderNew"));
     }
     // verify the required parameter 'timeInForce' is set
     if (timeInForce == null) {

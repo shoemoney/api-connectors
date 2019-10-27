@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 <a name="ordernew"></a>
 # **OrderNew**
-> Object OrderNew (string side, string symbol, string orderType, decimal? qty, double? price, string timeInForce, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
+> Object OrderNew (string side, string symbol, string orderType, decimal? qty, string timeInForce, double? price = null, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
 
 Place active order
 
@@ -207,8 +207,8 @@ namespace Example
             var symbol = symbol_example;  // string | Contract type.
             var orderType = orderType_example;  // string | Active order type
             var qty = 8.14;  // decimal? | 
-            var price = 1.2;  // double? | Order price.
             var timeInForce = timeInForce_example;  // string | Time in force
+            var price = 1.2;  // double? | Order price. (optional) 
             var takeProfit = 1.2;  // double? | take profit price (optional) 
             var stopLoss = 1.2;  // double? | stop loss price (optional) 
             var reduceOnly = true;  // bool? | reduce only (optional) 
@@ -218,7 +218,7 @@ namespace Example
             try
             {
                 // Place active order
-                Object result = apiInstance.OrderNew(side, symbol, orderType, qty, price, timeInForce, takeProfit, stopLoss, reduceOnly, closeOnTrigger, orderLinkId);
+                Object result = apiInstance.OrderNew(side, symbol, orderType, qty, timeInForce, price, takeProfit, stopLoss, reduceOnly, closeOnTrigger, orderLinkId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -238,8 +238,8 @@ Name | Type | Description  | Notes
  **symbol** | **string**| Contract type. | 
  **orderType** | **string**| Active order type | 
  **qty** | **decimal?**|  | 
- **price** | **double?**| Order price. | 
  **timeInForce** | **string**| Time in force | 
+ **price** | **double?**| Order price. | [optional] 
  **takeProfit** | **double?**| take profit price | [optional] 
  **stopLoss** | **double?**| stop loss price | [optional] 
  **reduceOnly** | **bool?**| reduce only | [optional] 

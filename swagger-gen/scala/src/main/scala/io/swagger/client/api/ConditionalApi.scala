@@ -149,17 +149,17 @@ class ConditionalApi(
    * @param symbol Contract type. 
    * @param orderType Conditional order type. 
    * @param qty Order quantity. 
-   * @param price Execution price for conditional order 
    * @param basePrice Send current market price. It will be used to compare with the value of &#39;stop_px&#39;, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.. 
    * @param stopPx Trigger price. 
    * @param timeInForce Time in force. 
+   * @param price Execution price for conditional order (optional)
    * @param triggerBy Trigger price type. Default LastPrice. (optional)
    * @param closeOnTrigger close on trigger. (optional)
    * @param orderLinkId Customized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.. (optional)
    * @return Any
    */
-  def conditionalNew(side: String, symbol: String, orderType: String, qty: Number, price: Double, basePrice: Double, stopPx: Double, timeInForce: String, triggerBy: Option[String] = None, closeOnTrigger: Option[Boolean] = None, orderLinkId: Option[String] = None): Option[Any] = {
-    val await = Try(Await.result(conditionalNewAsync(side, symbol, orderType, qty, price, basePrice, stopPx, timeInForce, triggerBy, closeOnTrigger, orderLinkId), Duration.Inf))
+  def conditionalNew(side: String, symbol: String, orderType: String, qty: Number, basePrice: Double, stopPx: Double, timeInForce: String, price: Option[Double] = None, triggerBy: Option[String] = None, closeOnTrigger: Option[Boolean] = None, orderLinkId: Option[String] = None): Option[Any] = {
+    val await = Try(Await.result(conditionalNewAsync(side, symbol, orderType, qty, basePrice, stopPx, timeInForce, price, triggerBy, closeOnTrigger, orderLinkId), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -174,17 +174,17 @@ class ConditionalApi(
    * @param symbol Contract type. 
    * @param orderType Conditional order type. 
    * @param qty Order quantity. 
-   * @param price Execution price for conditional order 
    * @param basePrice Send current market price. It will be used to compare with the value of &#39;stop_px&#39;, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.. 
    * @param stopPx Trigger price. 
    * @param timeInForce Time in force. 
+   * @param price Execution price for conditional order (optional)
    * @param triggerBy Trigger price type. Default LastPrice. (optional)
    * @param closeOnTrigger close on trigger. (optional)
    * @param orderLinkId Customized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.. (optional)
    * @return Future(Any)
    */
-  def conditionalNewAsync(side: String, symbol: String, orderType: String, qty: Number, price: Double, basePrice: Double, stopPx: Double, timeInForce: String, triggerBy: Option[String] = None, closeOnTrigger: Option[Boolean] = None, orderLinkId: Option[String] = None): Future[Any] = {
-      helper.conditionalNew(side, symbol, orderType, qty, price, basePrice, stopPx, timeInForce, triggerBy, closeOnTrigger, orderLinkId)
+  def conditionalNewAsync(side: String, symbol: String, orderType: String, qty: Number, basePrice: Double, stopPx: Double, timeInForce: String, price: Option[Double] = None, triggerBy: Option[String] = None, closeOnTrigger: Option[Boolean] = None, orderLinkId: Option[String] = None): Future[Any] = {
+      helper.conditionalNew(side, symbol, orderType, qty, basePrice, stopPx, timeInForce, price, triggerBy, closeOnTrigger, orderLinkId)
   }
 
   /**
@@ -292,10 +292,10 @@ class ConditionalApiAsyncHelper(client: TransportClient, config: SwaggerConfig) 
     symbol: String,
     orderType: String,
     qty: Number,
-    price: Double,
     basePrice: Double,
     stopPx: Double,
     timeInForce: String,
+    price: Option[Double] = None,
     triggerBy: Option[String] = None,
     closeOnTrigger: Option[Boolean] = None,
     orderLinkId: Option[String] = None
@@ -319,7 +319,10 @@ class ConditionalApiAsyncHelper(client: TransportClient, config: SwaggerConfig) 
     queryParams += "symbol" -> symbol.toString
     queryParams += "order_type" -> orderType.toString
     queryParams += "qty" -> qty.toString
-    queryParams += "price" -> price.toString
+    price match {
+      case Some(param) => queryParams += "price" -> param.toString
+      case _ => queryParams
+    }
     queryParams += "base_price" -> basePrice.toString
     queryParams += "stop_px" -> stopPx.toString
     queryParams += "time_in_force" -> timeInForce.toString

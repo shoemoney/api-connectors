@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderNew**
-> object orderNew($side, $symbol, $order_type, $qty, $price, $time_in_force, $take_profit, $stop_loss, $reduce_only, $close_on_trigger, $order_link_id)
+> object orderNew($side, $symbol, $order_type, $qty, $time_in_force, $price, $take_profit, $stop_loss, $reduce_only, $close_on_trigger, $order_link_id)
 
 Place active order
 
@@ -180,8 +180,8 @@ $side = "side_example"; // string | Side
 $symbol = "symbol_example"; // string | Contract type.
 $order_type = "order_type_example"; // string | Active order type
 $qty = 8.14; // float | 
-$price = 1.2; // double | Order price.
 $time_in_force = "time_in_force_example"; // string | Time in force
+$price = 1.2; // double | Order price.
 $take_profit = 1.2; // double | take profit price
 $stop_loss = 1.2; // double | stop loss price
 $reduce_only = true; // bool | reduce only
@@ -189,7 +189,7 @@ $close_on_trigger = true; // bool | close on trigger
 $order_link_id = "order_link_id_example"; // string | TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
 
 try {
-    $result = $apiInstance->orderNew($side, $symbol, $order_type, $qty, $price, $time_in_force, $take_profit, $stop_loss, $reduce_only, $close_on_trigger, $order_link_id);
+    $result = $apiInstance->orderNew($side, $symbol, $order_type, $qty, $time_in_force, $price, $take_profit, $stop_loss, $reduce_only, $close_on_trigger, $order_link_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->orderNew: ', $e->getMessage(), PHP_EOL;
@@ -205,8 +205,8 @@ Name | Type | Description  | Notes
  **symbol** | **string**| Contract type. |
  **order_type** | **string**| Active order type |
  **qty** | **float**|  |
- **price** | **double**| Order price. |
  **time_in_force** | **string**| Time in force |
+ **price** | **double**| Order price. | [optional]
  **take_profit** | **double**| take profit price | [optional]
  **stop_loss** | **double**| stop loss price | [optional]
  **reduce_only** | **bool**| reduce only | [optional]

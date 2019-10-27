@@ -337,10 +337,11 @@ paths:
       - name: "price"
         in: "query"
         description: "Order price."
-        required: true
+        required: false
         type: "number"
         format: "double"
         x-exportParamName: "Price"
+        x-optionalDataType: "Float64"
       - name: "time_in_force"
         in: "query"
         description: "Time in force"
@@ -582,10 +583,11 @@ paths:
       - name: "price"
         in: "query"
         description: "Execution price for conditional order"
-        required: true
+        required: false
         type: "number"
         format: "double"
         x-exportParamName: "Price"
+        x-optionalDataType: "Float64"
       - name: "base_price"
         in: "query"
         description: "Send current market price. It will be used to compare with the\

@@ -99,8 +99,8 @@ public:
     /// <param name="symbol">Contract type.</param>
     /// <param name="orderType">Active order type</param>
     /// <param name="qty"></param>
-    /// <param name="price">Order price.</param>
     /// <param name="timeInForce">Time in force</param>
+    /// <param name="price">Order price. (optional)</param>
     /// <param name="takeProfit">take profit price (optional)</param>
     /// <param name="stopLoss">stop loss price (optional)</param>
     /// <param name="reduceOnly">reduce only (optional)</param>
@@ -111,8 +111,8 @@ public:
         utility::string_t symbol,
         utility::string_t orderType,
         double qty,
-        double price,
         utility::string_t timeInForce,
+        boost::optional<double> price,
         boost::optional<double> takeProfit,
         boost::optional<double> stopLoss,
         boost::optional<bool> reduceOnly,

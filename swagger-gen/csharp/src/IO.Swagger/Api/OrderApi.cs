@@ -90,15 +90,15 @@ namespace IO.Swagger.Api
         /// <param name="symbol">Contract type.</param>
         /// <param name="orderType">Active order type</param>
         /// <param name="qty"></param>
-        /// <param name="price">Order price.</param>
         /// <param name="timeInForce">Time in force</param>
+        /// <param name="price">Order price. (optional)</param>
         /// <param name="takeProfit">take profit price (optional)</param>
         /// <param name="stopLoss">stop loss price (optional)</param>
         /// <param name="reduceOnly">reduce only (optional)</param>
         /// <param name="closeOnTrigger">close on trigger (optional)</param>
         /// <param name="orderLinkId">TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique. (optional)</param>
         /// <returns>Object</returns>
-        Object OrderNew (string side, string symbol, string orderType, decimal? qty, double? price, string timeInForce, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null);
+        Object OrderNew (string side, string symbol, string orderType, decimal? qty, string timeInForce, double? price = null, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null);
 
         /// <summary>
         /// Place active order
@@ -111,15 +111,15 @@ namespace IO.Swagger.Api
         /// <param name="symbol">Contract type.</param>
         /// <param name="orderType">Active order type</param>
         /// <param name="qty"></param>
-        /// <param name="price">Order price.</param>
         /// <param name="timeInForce">Time in force</param>
+        /// <param name="price">Order price. (optional)</param>
         /// <param name="takeProfit">take profit price (optional)</param>
         /// <param name="stopLoss">stop loss price (optional)</param>
         /// <param name="reduceOnly">reduce only (optional)</param>
         /// <param name="closeOnTrigger">close on trigger (optional)</param>
         /// <param name="orderLinkId">TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> OrderNewWithHttpInfo (string side, string symbol, string orderType, decimal? qty, double? price, string timeInForce, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null);
+        ApiResponse<Object> OrderNewWithHttpInfo (string side, string symbol, string orderType, decimal? qty, string timeInForce, double? price = null, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null);
         /// <summary>
         /// Get my active order list.
         /// </summary>
@@ -239,15 +239,15 @@ namespace IO.Swagger.Api
         /// <param name="symbol">Contract type.</param>
         /// <param name="orderType">Active order type</param>
         /// <param name="qty"></param>
-        /// <param name="price">Order price.</param>
         /// <param name="timeInForce">Time in force</param>
+        /// <param name="price">Order price. (optional)</param>
         /// <param name="takeProfit">take profit price (optional)</param>
         /// <param name="stopLoss">stop loss price (optional)</param>
         /// <param name="reduceOnly">reduce only (optional)</param>
         /// <param name="closeOnTrigger">close on trigger (optional)</param>
         /// <param name="orderLinkId">TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique. (optional)</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> OrderNewAsync (string side, string symbol, string orderType, decimal? qty, double? price, string timeInForce, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null);
+        System.Threading.Tasks.Task<Object> OrderNewAsync (string side, string symbol, string orderType, decimal? qty, string timeInForce, double? price = null, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null);
 
         /// <summary>
         /// Place active order
@@ -260,15 +260,15 @@ namespace IO.Swagger.Api
         /// <param name="symbol">Contract type.</param>
         /// <param name="orderType">Active order type</param>
         /// <param name="qty"></param>
-        /// <param name="price">Order price.</param>
         /// <param name="timeInForce">Time in force</param>
+        /// <param name="price">Order price. (optional)</param>
         /// <param name="takeProfit">take profit price (optional)</param>
         /// <param name="stopLoss">stop loss price (optional)</param>
         /// <param name="reduceOnly">reduce only (optional)</param>
         /// <param name="closeOnTrigger">close on trigger (optional)</param>
         /// <param name="orderLinkId">TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique. (optional)</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> OrderNewAsyncWithHttpInfo (string side, string symbol, string orderType, decimal? qty, double? price, string timeInForce, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> OrderNewAsyncWithHttpInfo (string side, string symbol, string orderType, decimal? qty, string timeInForce, double? price = null, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null);
         /// <summary>
         /// Get my active order list.
         /// </summary>
@@ -797,17 +797,17 @@ namespace IO.Swagger.Api
         /// <param name="symbol">Contract type.</param>
         /// <param name="orderType">Active order type</param>
         /// <param name="qty"></param>
-        /// <param name="price">Order price.</param>
         /// <param name="timeInForce">Time in force</param>
+        /// <param name="price">Order price. (optional)</param>
         /// <param name="takeProfit">take profit price (optional)</param>
         /// <param name="stopLoss">stop loss price (optional)</param>
         /// <param name="reduceOnly">reduce only (optional)</param>
         /// <param name="closeOnTrigger">close on trigger (optional)</param>
         /// <param name="orderLinkId">TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique. (optional)</param>
         /// <returns>Object</returns>
-        public Object OrderNew (string side, string symbol, string orderType, decimal? qty, double? price, string timeInForce, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
+        public Object OrderNew (string side, string symbol, string orderType, decimal? qty, string timeInForce, double? price = null, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
         {
-             ApiResponse<Object> localVarResponse = OrderNewWithHttpInfo(side, symbol, orderType, qty, price, timeInForce, takeProfit, stopLoss, reduceOnly, closeOnTrigger, orderLinkId);
+             ApiResponse<Object> localVarResponse = OrderNewWithHttpInfo(side, symbol, orderType, qty, timeInForce, price, takeProfit, stopLoss, reduceOnly, closeOnTrigger, orderLinkId);
              return localVarResponse.Data;
         }
 
@@ -819,15 +819,15 @@ namespace IO.Swagger.Api
         /// <param name="symbol">Contract type.</param>
         /// <param name="orderType">Active order type</param>
         /// <param name="qty"></param>
-        /// <param name="price">Order price.</param>
         /// <param name="timeInForce">Time in force</param>
+        /// <param name="price">Order price. (optional)</param>
         /// <param name="takeProfit">take profit price (optional)</param>
         /// <param name="stopLoss">stop loss price (optional)</param>
         /// <param name="reduceOnly">reduce only (optional)</param>
         /// <param name="closeOnTrigger">close on trigger (optional)</param>
         /// <param name="orderLinkId">TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ApiResponse< Object > OrderNewWithHttpInfo (string side, string symbol, string orderType, decimal? qty, double? price, string timeInForce, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
+        public ApiResponse< Object > OrderNewWithHttpInfo (string side, string symbol, string orderType, decimal? qty, string timeInForce, double? price = null, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -841,9 +841,6 @@ namespace IO.Swagger.Api
             // verify the required parameter 'qty' is set
             if (qty == null)
                 throw new ApiException(400, "Missing required parameter 'qty' when calling OrderApi->OrderNew");
-            // verify the required parameter 'price' is set
-            if (price == null)
-                throw new ApiException(400, "Missing required parameter 'price' when calling OrderApi->OrderNew");
             // verify the required parameter 'timeInForce' is set
             if (timeInForce == null)
                 throw new ApiException(400, "Missing required parameter 'timeInForce' when calling OrderApi->OrderNew");
@@ -925,17 +922,17 @@ namespace IO.Swagger.Api
         /// <param name="symbol">Contract type.</param>
         /// <param name="orderType">Active order type</param>
         /// <param name="qty"></param>
-        /// <param name="price">Order price.</param>
         /// <param name="timeInForce">Time in force</param>
+        /// <param name="price">Order price. (optional)</param>
         /// <param name="takeProfit">take profit price (optional)</param>
         /// <param name="stopLoss">stop loss price (optional)</param>
         /// <param name="reduceOnly">reduce only (optional)</param>
         /// <param name="closeOnTrigger">close on trigger (optional)</param>
         /// <param name="orderLinkId">TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique. (optional)</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> OrderNewAsync (string side, string symbol, string orderType, decimal? qty, double? price, string timeInForce, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
+        public async System.Threading.Tasks.Task<Object> OrderNewAsync (string side, string symbol, string orderType, decimal? qty, string timeInForce, double? price = null, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
         {
-             ApiResponse<Object> localVarResponse = await OrderNewAsyncWithHttpInfo(side, symbol, orderType, qty, price, timeInForce, takeProfit, stopLoss, reduceOnly, closeOnTrigger, orderLinkId);
+             ApiResponse<Object> localVarResponse = await OrderNewAsyncWithHttpInfo(side, symbol, orderType, qty, timeInForce, price, takeProfit, stopLoss, reduceOnly, closeOnTrigger, orderLinkId);
              return localVarResponse.Data;
 
         }
@@ -948,15 +945,15 @@ namespace IO.Swagger.Api
         /// <param name="symbol">Contract type.</param>
         /// <param name="orderType">Active order type</param>
         /// <param name="qty"></param>
-        /// <param name="price">Order price.</param>
         /// <param name="timeInForce">Time in force</param>
+        /// <param name="price">Order price. (optional)</param>
         /// <param name="takeProfit">take profit price (optional)</param>
         /// <param name="stopLoss">stop loss price (optional)</param>
         /// <param name="reduceOnly">reduce only (optional)</param>
         /// <param name="closeOnTrigger">close on trigger (optional)</param>
         /// <param name="orderLinkId">TCustomized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique. (optional)</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> OrderNewAsyncWithHttpInfo (string side, string symbol, string orderType, decimal? qty, double? price, string timeInForce, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> OrderNewAsyncWithHttpInfo (string side, string symbol, string orderType, decimal? qty, string timeInForce, double? price = null, double? takeProfit = null, double? stopLoss = null, bool? reduceOnly = null, bool? closeOnTrigger = null, string orderLinkId = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -970,9 +967,6 @@ namespace IO.Swagger.Api
             // verify the required parameter 'qty' is set
             if (qty == null)
                 throw new ApiException(400, "Missing required parameter 'qty' when calling OrderApi->OrderNew");
-            // verify the required parameter 'price' is set
-            if (price == null)
-                throw new ApiException(400, "Missing required parameter 'price' when calling OrderApi->OrderNew");
             // verify the required parameter 'timeInForce' is set
             if (timeInForce == null)
                 throw new ApiException(400, "Missing required parameter 'timeInForce' when calling OrderApi->OrderNew");

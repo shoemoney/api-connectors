@@ -169,9 +169,9 @@
      * @param {String} symbol Contract type.
      * @param {String} orderType Active order type
      * @param {Number} qty 
-     * @param {Number} price Order price.
      * @param {String} timeInForce Time in force
      * @param {Object} opts Optional parameters
+     * @param {Number} opts.price Order price.
      * @param {Number} opts.takeProfit take profit price
      * @param {Number} opts.stopLoss stop loss price
      * @param {Boolean} opts.reduceOnly reduce only
@@ -180,7 +180,7 @@
      * @param {module:api/OrderApi~orderNewCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    this.orderNew = function(side, symbol, orderType, qty, price, timeInForce, opts, callback) {
+    this.orderNew = function(side, symbol, orderType, qty, timeInForce, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -204,11 +204,6 @@
         throw new Error("Missing the required parameter 'qty' when calling orderNew");
       }
 
-      // verify the required parameter 'price' is set
-      if (price === undefined || price === null) {
-        throw new Error("Missing the required parameter 'price' when calling orderNew");
-      }
-
       // verify the required parameter 'timeInForce' is set
       if (timeInForce === undefined || timeInForce === null) {
         throw new Error("Missing the required parameter 'timeInForce' when calling orderNew");
@@ -222,7 +217,7 @@
         'symbol': symbol,
         'order_type': orderType,
         'qty': qty,
-        'price': price,
+        'price': opts['price'],
         'time_in_force': timeInForce,
         'take_profit': opts['takeProfit'],
         'stop_loss': opts['stopLoss'],

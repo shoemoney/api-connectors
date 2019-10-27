@@ -32,7 +32,7 @@ import java.util.List;
  * Get symbol information.
  */
 @ApiModel(description = "Get symbol information.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-24T19:54:52.777+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-27T12:05:04.065+08:00")
 public class Symbols {
   @SerializedName("ret_code")
   private BigDecimal retCode = null;

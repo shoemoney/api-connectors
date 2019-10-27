@@ -320,11 +320,11 @@ ConditionalApiService Place a new conditional order.
  * @param symbol Contract type.
  * @param orderType Conditional order type.
  * @param qty Order quantity.
- * @param price Execution price for conditional order
  * @param basePrice Send current market price. It will be used to compare with the value of &#39;stop_px&#39;, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order..
  * @param stopPx Trigger price.
  * @param timeInForce Time in force.
  * @param optional nil or *ConditionalNewOpts - Optional Parameters:
+     * @param "Price" (optional.Float64) -  Execution price for conditional order
      * @param "TriggerBy" (optional.String) -  Trigger price type. Default LastPrice.
      * @param "CloseOnTrigger" (optional.Bool) -  close on trigger.
      * @param "OrderLinkId" (optional.String) -  Customized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique..
@@ -333,12 +333,13 @@ ConditionalApiService Place a new conditional order.
 */
 
 type ConditionalNewOpts struct { 
+	Price optional.Float64
 	TriggerBy optional.String
 	CloseOnTrigger optional.Bool
 	OrderLinkId optional.String
 }
 
-func (a *ConditionalApiService) ConditionalNew(ctx context.Context, side string, symbol string, orderType string, qty float32, price float64, basePrice float64, stopPx float64, timeInForce string, localVarOptionals *ConditionalNewOpts) (interface{}, *http.Response, error) {
+func (a *ConditionalApiService) ConditionalNew(ctx context.Context, side string, symbol string, orderType string, qty float32, basePrice float64, stopPx float64, timeInForce string, localVarOptionals *ConditionalNewOpts) (interface{}, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -358,7 +359,9 @@ func (a *ConditionalApiService) ConditionalNew(ctx context.Context, side string,
 	localVarQueryParams.Add("symbol", parameterToString(symbol, ""))
 	localVarQueryParams.Add("order_type", parameterToString(orderType, ""))
 	localVarQueryParams.Add("qty", parameterToString(qty, ""))
-	localVarQueryParams.Add("price", parameterToString(price, ""))
+	if localVarOptionals != nil && localVarOptionals.Price.IsSet() {
+		localVarQueryParams.Add("price", parameterToString(localVarOptionals.Price.Value(), ""))
+	}
 	localVarQueryParams.Add("base_price", parameterToString(basePrice, ""))
 	localVarQueryParams.Add("stop_px", parameterToString(stopPx, ""))
 	localVarQueryParams.Add("time_in_force", parameterToString(timeInForce, ""))

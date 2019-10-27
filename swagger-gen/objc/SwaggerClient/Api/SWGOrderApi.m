@@ -226,9 +226,9 @@ NSInteger kSWGOrderApiMissingParamErrorCode = 234513;
 ///
 ///  @param qty  
 ///
-///  @param price Order price. 
-///
 ///  @param timeInForce Time in force 
+///
+///  @param price Order price. (optional)
 ///
 ///  @param takeProfit take profit price (optional)
 ///
@@ -246,8 +246,8 @@ NSInteger kSWGOrderApiMissingParamErrorCode = 234513;
     symbol: (NSString*) symbol
     orderType: (NSString*) orderType
     qty: (NSNumber*) qty
-    price: (NSNumber*) price
     timeInForce: (NSString*) timeInForce
+    price: (NSNumber*) price
     takeProfit: (NSNumber*) takeProfit
     stopLoss: (NSNumber*) stopLoss
     reduceOnly: (NSNumber*) reduceOnly
@@ -292,17 +292,6 @@ NSInteger kSWGOrderApiMissingParamErrorCode = 234513;
         NSParameterAssert(qty);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"qty"] };
-            NSError* error = [NSError errorWithDomain:kSWGOrderApiErrorDomain code:kSWGOrderApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    // verify the required parameter 'price' is set
-    if (price == nil) {
-        NSParameterAssert(price);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"price"] };
             NSError* error = [NSError errorWithDomain:kSWGOrderApiErrorDomain code:kSWGOrderApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }

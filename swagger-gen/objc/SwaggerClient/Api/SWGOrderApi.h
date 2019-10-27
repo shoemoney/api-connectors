@@ -67,8 +67,8 @@ extern NSInteger kSWGOrderApiMissingParamErrorCode;
 /// @param symbol Contract type.
 /// @param orderType Active order type
 /// @param qty 
-/// @param price Order price.
 /// @param timeInForce Time in force
+/// @param price Order price. (optional)
 /// @param takeProfit take profit price (optional)
 /// @param stopLoss stop loss price (optional)
 /// @param reduceOnly reduce only (optional)
@@ -82,8 +82,8 @@ extern NSInteger kSWGOrderApiMissingParamErrorCode;
     symbol: (NSString*) symbol
     orderType: (NSString*) orderType
     qty: (NSNumber*) qty
-    price: (NSNumber*) price
     timeInForce: (NSString*) timeInForce
+    price: (NSNumber*) price
     takeProfit: (NSNumber*) takeProfit
     stopLoss: (NSNumber*) stopLoss
     reduceOnly: (NSNumber*) reduceOnly

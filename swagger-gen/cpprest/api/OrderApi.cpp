@@ -502,7 +502,7 @@ pplx::task<std::shared_ptr<Object>> OrderApi::order_getOrders(boost::optional<ut
         return result;
     });
 }
-pplx::task<std::shared_ptr<Object>> OrderApi::order_new(utility::string_t side, utility::string_t symbol, utility::string_t orderType, double qty, double price, utility::string_t timeInForce, boost::optional<double> takeProfit, boost::optional<double> stopLoss, boost::optional<bool> reduceOnly, boost::optional<bool> closeOnTrigger, boost::optional<utility::string_t> orderLinkId)
+pplx::task<std::shared_ptr<Object>> OrderApi::order_new(utility::string_t side, utility::string_t symbol, utility::string_t orderType, double qty, utility::string_t timeInForce, boost::optional<double> price, boost::optional<double> takeProfit, boost::optional<double> stopLoss, boost::optional<bool> reduceOnly, boost::optional<bool> closeOnTrigger, boost::optional<utility::string_t> orderLinkId)
 {
 
 
@@ -558,10 +558,11 @@ pplx::task<std::shared_ptr<Object>> OrderApi::order_new(utility::string_t side, 
         queryParams[utility::conversions::to_string_t("qty")] = ApiClient::parameterToString(qty);
     }
     {
-        queryParams[utility::conversions::to_string_t("price")] = ApiClient::parameterToString(price);
-    }
-    {
         queryParams[utility::conversions::to_string_t("time_in_force")] = ApiClient::parameterToString(timeInForce);
+    }
+    if (price)
+    {
+        queryParams[utility::conversions::to_string_t("price")] = ApiClient::parameterToString(*price);
     }
     if (takeProfit)
     {

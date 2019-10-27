@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 <a name="orderNew"></a>
 # **orderNew**
-> Object orderNew(side, symbol, orderType, qty, price, timeInForce, opts)
+> Object orderNew(side, symbol, orderType, qty, timeInForce, opts)
 
 Place active order
 
@@ -193,11 +193,10 @@ var orderType = "orderType_example"; // String | Active order type
 
 var qty = 8.14; // Number | 
 
-var price = 1.2; // Number | Order price.
-
 var timeInForce = "timeInForce_example"; // String | Time in force
 
 var opts = { 
+  'price': 1.2, // Number | Order price.
   'takeProfit': 1.2, // Number | take profit price
   'stopLoss': 1.2, // Number | stop loss price
   'reduceOnly': true, // Boolean | reduce only
@@ -212,7 +211,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.orderNew(side, symbol, orderType, qty, price, timeInForce, opts, callback);
+apiInstance.orderNew(side, symbol, orderType, qty, timeInForce, opts, callback);
 ```
 
 ### Parameters
@@ -223,8 +222,8 @@ Name | Type | Description  | Notes
  **symbol** | **String**| Contract type. | 
  **orderType** | **String**| Active order type | 
  **qty** | **Number**|  | 
- **price** | **Number**| Order price. | 
  **timeInForce** | **String**| Time in force | 
+ **price** | **Number**| Order price. | [optional] 
  **takeProfit** | **Number**| take profit price | [optional] 
  **stopLoss** | **Number**| stop loss price | [optional] 
  **reduceOnly** | **Boolean**| reduce only | [optional] 
